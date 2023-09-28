@@ -4,3 +4,6 @@
 .flex-between-center {
   @apply flex justify-between items-center;
 }
+.bg-element {
+  @apply bg-elements-l dark:bg-elements-d;
+}
