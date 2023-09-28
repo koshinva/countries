@@ -28,6 +28,7 @@
       "ui/*": ["ui/*"],
       "types/*": ["types/*"],
       "styles/*": ["styles/*"],
+      "store/*": ["store/*"],
     }
 
   },

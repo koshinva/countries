@@ -8,10 +8,11 @@ type TypeIconName = keyof typeof Icons;
 
 interface IIconProps {
   icon: TypeIconName;
+  fill?: string;
 }
 
-export const Icon: FC<IIconProps> = ({ icon }) => {
+export const Icon: FC<IIconProps> = ({ icon, fill }) => {
   const IconComponent = Icons[icon];
   
-  return <IconComponent />;
+  return <IconComponent fill={fill} />;
 };
