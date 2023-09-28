@@ -10,6 +10,9 @@ export default defineConfig({
       hooks: '/src/hooks',
       utils: '/src/utils',
       assets: '/src/assets',
+      ui: '/src/ui',
+      types: '/src/types',
+      styles: '/src/styles',
     }
   }
 })

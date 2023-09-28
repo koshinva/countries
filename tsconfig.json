@@ -25,6 +25,9 @@
       "hooks/*": ["hooks/*"],
       "utils/*": ["utils/*"],
       "assets/*": ["assets/*"],
+      "ui/*": ["ui/*"],
+      "types/*": ["types/*"],
+      "styles/*": ["styles/*"],
     }
 
   },
