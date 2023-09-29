@@ -1,27 +1,27 @@
-# React + TypeScript + Vite
+# Countries
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[frontend mentors link](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
-Currently, two official plugins are available:
+[quiz link](https://devchallenges.io/challenges/Bu3G2irnaXmfwQ8sZkw8)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**BRIEF FM**
 
-## Expanding the ESLint configuration
+Your challenge is integrating with the REST Countries API to pull country data and display it like in the designs.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+You can use any JavaScript framework/library on the front-end, such as React or Vue. You also have complete control over which packages you use to make HTTP requests or style your project.
 
-- Configure the top-level `parserOptions` property like this:
+Your users should be able to:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+See all countries from the API on the homepage
+Search for a country using an input field
+Filter countries by region
+Click on a country to see more detailed information on a separate page
+Click through to the border countries on the detail page
+View the optimal layout for the interface depending on their device's screen size
+See hover and focus states for all interactive elements on the page
+Bonus: Toggle the color scheme between light and dark mode
+Download the starter code and go through the README.md file. This will provide further details about the project. The style-guide.md file is where you'll find colors, fonts, etc.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Want some support on the challenge? Join our community and ask questions in the help channel.
+
+**BRIEF QUIZ**
