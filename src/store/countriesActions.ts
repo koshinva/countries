@@ -27,8 +27,10 @@ export const getAllCountries = createAsyncThunk<
         capital: d.capital,
       });
     });
+    data.sort((first, second) => second.population - first.population);
 
     return data;
+    
   } catch (err) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const error: AxiosError<KnownError> = err as any;
