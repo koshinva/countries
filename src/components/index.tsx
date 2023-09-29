@@ -1,3 +1,4 @@
+import { Countries } from './Countries';
 import { Header } from './Header';
 
-export { Header };
+export { Header, Countries };

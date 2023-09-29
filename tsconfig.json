@@ -29,6 +29,7 @@
       "types/*": ["types/*"],
       "styles/*": ["styles/*"],
       "store/*": ["store/*"],
+      "api/*": ["api/*"],
     }
 
   },
