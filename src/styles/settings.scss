@@ -7,3 +7,9 @@
 .bg-element {
   @apply bg-elements-l dark:bg-elements-d;
 }
+.theme-text-invert {
+  @apply text-text-d dark:text-text-l;
+}
+.bg-element-invert {
+  @apply bg-elements-d dark:bg-elements-l;
+}
