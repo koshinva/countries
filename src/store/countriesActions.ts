@@ -2,6 +2,7 @@ import { AxiosError } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as api from 'api/instance';
 import { ICountryData, ICountryApi } from 'types';
+import { transformData } from 'utils';
 
 export type KnownError = {
   message: string;
@@ -16,18 +17,9 @@ export const getAllCountries = createAsyncThunk<
 >('country/all', async function (_, thunkApi) {
   try {
     const response = await api.instance.get<ICountryApi[]>('/all');
-    const data: ICountryData[] = [];
 
-    response.data.forEach((d) => {
-      data.push({
-        name: d.name.common,
-        region: d.region,
-        flag: d.flag,
-        population: d.population,
-        capital: (d.capital && d.capital.length) ? d.capital.join(', ') : '',
-        cca2: d.cca2.toLowerCase(),
-      });
-    });
+    const data: ICountryData[] = transformData(response.data);
+
     data.sort((first, second) => second.population - first.population);
 
     return data;

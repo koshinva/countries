@@ -8,6 +8,7 @@ interface IProps {
 }
 
 export const Specification: FC<IProps> = ({ title, value }) => {
+  if (typeof value === 'string' && value === '') return null; 
   return (
     <p className="m-0">
       <strong className="mr-2 font-semibold">{toCapitalize(title)}:</strong>

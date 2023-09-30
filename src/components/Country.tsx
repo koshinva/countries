@@ -6,14 +6,18 @@ interface IProps {
   country: ICountryData;
 }
 
-const specification: Array<keyof ICountryData> = ['population', 'region', 'capital'];
+const specification: Array<keyof Omit<ICountryData, 'border countries'>> = [
+  'population',
+  'region',
+  'capital',
+];
 
 export const Country: FC<IProps> = ({ country }) => {
   return (
     <li className="flex flex-col rounded-xl shadow-lg bg-element min-h-[400px] overflow-hidden">
       <div className="h-1/2 flex justify-center items-center">
         <img
-          src={`https://flagcdn.com/${country.cca2}.svg`}
+          src={country.image}
           width="100%"
           alt={country.name}
           className="h-full object-cover shadow-md"

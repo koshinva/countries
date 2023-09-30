@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ICountriesInitialState, ICountryData } from 'types';
 import { getAllCountries } from './countriesActions';
+import { getInitialCountries } from 'utils';
 
 const initialState: ICountriesInitialState = {
-  countries: [],
+  countries: getInitialCountries(),
   isLoading: false,
   error: null,
 };
@@ -20,6 +21,7 @@ const countriesSlice = createSlice({
       .addCase(getAllCountries.fulfilled, (state, { payload }: { payload: ICountryData[] }) => {
         state.isLoading = false;
         state.countries = payload;
+        localStorage.setItem('countries', JSON.stringify(payload));
       })
       .addCase(getAllCountries.rejected, (state, action) => {
         state.isLoading = false;

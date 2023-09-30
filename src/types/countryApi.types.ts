@@ -65,7 +65,7 @@ enum Continent {
   SouthAmerica = "South America",
 }
 
-interface Currencies {
+export interface Currencies {
   XPF?: Aed;
   EUR?: Aed;
   VES?: Aed;
@@ -308,5 +308,11 @@ export interface ICountryData {
   capital: string;
   population: number;
   flag: string;
-  cca2: string;
-} 
+  image: string;
+  'native name': string;
+  'sub region': string;
+  'top level domain': string;
+  currencies: string;
+  languages: string;
+  'border countries': string[];
+}
