@@ -305,7 +305,8 @@ enum Status {
 export interface ICountryData {
   name: string;
   region: Region;
-  capital?: string[];
+  capital: string;
   population: number;
   flag: string;
+  cca2: string;
 } 

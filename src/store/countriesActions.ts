@@ -24,7 +24,8 @@ export const getAllCountries = createAsyncThunk<
         region: d.region,
         flag: d.flag,
         population: d.population,
-        capital: d.capital,
+        capital: (d.capital && d.capital.length) ? d.capital.join(', ') : '',
+        cca2: d.cca2.toLowerCase(),
       });
     });
     data.sort((first, second) => second.population - first.population);

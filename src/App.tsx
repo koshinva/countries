@@ -20,8 +20,10 @@ function App() {
   return (
     <>
       <Header />
-      {/* <ControlPanel /> */}
-      <Countries />
+      <main>
+        {/* <ControlPanel /> */}
+        <Countries />
+      </main>
     </>
   );
 }
