@@ -303,6 +303,7 @@ enum Status {
 
 
 export interface ICountryData {
+  slug: string,
   name: string;
   region: Region;
   capital: string;

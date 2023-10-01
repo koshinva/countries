@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
 import './App.scss';
-import { Countries, Header } from './components';
+import { CountryDetail, Layout, Main } from './components';
 import { useTypedSelector } from 'hooks/useTypedSelectors';
 import { setThemeHTML } from 'utils';
 import { useActions } from 'hooks/useActions';
@@ -23,11 +25,12 @@ function App() {
 
   return (
     <>
-      <Header />
-      <main>
-        {/* <ControlPanel /> */}
-        <Countries />
-      </main>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Main />} />
+          <Route path="/country/:slug" element={<CountryDetail />} />
+        </Route>
+      </Routes>
     </>
   );
 }
