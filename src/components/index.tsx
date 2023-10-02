@@ -6,3 +6,4 @@ export { Main } from './Main';
 export { Layout } from './Layout';
 export { CountryDetail } from './CountryDetail';
 export { NotFound } from './NotFound';
+export { BorderCountries } from './BorderCountries';

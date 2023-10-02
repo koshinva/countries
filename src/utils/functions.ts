@@ -8,3 +8,7 @@ export const toCapitalize = (value: string): string => {
 export const transformNumber = (value: number): string => {
   return new Intl.NumberFormat('en-GB').format(value);
 };
+
+export const generateSlug = (nameCountry: string): string => {
+  return nameCountry.toLowerCase().split(' ').join('-');
+};

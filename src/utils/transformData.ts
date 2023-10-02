@@ -1,4 +1,5 @@
 import { Currencies, ICountryApi, ICountryData } from 'types/countryApi.types';
+import { generateSlug } from '.';
 
 const arrayToString = (value: string[] | undefined): string => {
   return value && value.length ? value.join(', ') : '';
@@ -30,7 +31,7 @@ export const transformData = (data: ICountryApi[]): ICountryData[] => {
     cca3ToName[d.cca3] = d.name.common;
 
     countries.push({
-      slug: d.name.common.toLowerCase().split(' ').join('-'),
+      slug: generateSlug(d.name.common),
       name: d.name.common,
       region: d.region,
       flag: d.flag,

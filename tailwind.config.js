@@ -15,6 +15,9 @@ export default {
         'text-l': 'hsl(200, 15%, 8%)',
         'input-l': 'hsl(0, 0%, 52%)',
       },
+      gridTemplateRows: {
+        '5-min-content': 'repeat(5, min-content)',
+      },
     },
     fontFamily: {
       serif: ['Nunito Sans', 'sans-serif'],
