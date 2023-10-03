@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ICountriesInitialState, ICountryData } from 'types';
-import { getAllCountries } from './countriesActions';
 import { getInitialCountries } from 'utils';
+import { getAllCountries } from './countriesActions';
+import { ICountriesInitialState, ICountryData, Region } from 'types';
 
 const initialState: ICountriesInitialState = {
   countries: getInitialCountries(),
   displayedCountries: [],
   isLoading: false,
   error: null,
+  searchQuery: '',
+  filterRegion: null,
 };
 
 const countriesSlice = createSlice({
@@ -15,16 +17,24 @@ const countriesSlice = createSlice({
   initialState,
   reducers: {
     renderCountries(state) {
-      state.displayedCountries = state.countries;
+      let willBeRendered = state.countries;
+
+      if (state.searchQuery) {
+        willBeRendered = willBeRendered.filter((c) =>
+          c.name.toLowerCase().includes(state.searchQuery.toLowerCase())
+        );
+      }
+      if (state.filterRegion) {
+        willBeRendered = willBeRendered.filter((c) => c.region === state.filterRegion);
+      }
+
+      state.displayedCountries = willBeRendered;
     },
     searchCountry(state, { payload }: { payload: string }) {
-      if (!payload) {
-        state.displayedCountries = state.countries;
-        return;
-      }
-      state.displayedCountries = state.countries.filter((c) =>
-        c.name.toLowerCase().includes(payload.toLowerCase())
-      );
+      state.searchQuery = payload;
+    },
+    filterByRegion(state, { payload }: { payload: Region }) {
+      state.filterRegion = payload;
     },
   },
   extraReducers: (builder) => {

@@ -281,7 +281,7 @@ interface PostalCode {
   regex?: string;
 }
 
-enum Region {
+export enum Region {
   Africa = "Africa",
   Americas = "Americas",
   Antarctic = "Antarctic",
