@@ -33,7 +33,7 @@ const countriesSlice = createSlice({
     searchCountry(state, { payload }: { payload: string }) {
       state.searchQuery = payload;
     },
-    filterByRegion(state, { payload }: { payload: Region }) {
+    filterByRegion(state, { payload }: { payload: Region | null }) {
       state.filterRegion = payload;
     },
   },
@@ -58,6 +58,6 @@ const countriesSlice = createSlice({
   },
 });
 
-export const { renderCountries, searchCountry } = countriesSlice.actions;
+export const { renderCountries, searchCountry, filterByRegion } = countriesSlice.actions;
 
 export default countriesSlice.reducer;
