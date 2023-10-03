@@ -5,6 +5,7 @@ import { getInitialCountries } from 'utils';
 
 const initialState: ICountriesInitialState = {
   countries: getInitialCountries(),
+  displayedCountries: [],
   isLoading: false,
   error: null,
 };
@@ -12,7 +13,20 @@ const initialState: ICountriesInitialState = {
 const countriesSlice = createSlice({
   name: 'countries',
   initialState,
-  reducers: {},
+  reducers: {
+    renderCountries(state) {
+      state.displayedCountries = state.countries;
+    },
+    searchCountry(state, { payload }: { payload: string }) {
+      if (!payload) {
+        state.displayedCountries = state.countries;
+        return;
+      }
+      state.displayedCountries = state.countries.filter((c) =>
+        c.name.toLowerCase().includes(payload.toLowerCase())
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAllCountries.pending, (state) => {
@@ -34,6 +48,6 @@ const countriesSlice = createSlice({
   },
 });
 
-// export const {} = countriesSlice.actions;
+export const { renderCountries, searchCountry } = countriesSlice.actions;
 
 export default countriesSlice.reducer;

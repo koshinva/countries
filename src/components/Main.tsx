@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import { Countries } from '.';
+import { ControlPanel, Countries } from '.';
 
 export const Main: FC = () => {
   return (
     <>
-      {/* <ControlPanel /> */}
+      <ControlPanel />
       <Countries />
     </>
   );

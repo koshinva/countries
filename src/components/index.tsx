@@ -7,3 +7,6 @@ export { Layout } from './Layout';
 export { CountryDetail } from './CountryDetail';
 export { NotFound } from './NotFound';
 export { BorderCountries } from './BorderCountries';
+export { FilterRegion } from './FilterRegion';
+export { ControlPanel } from './ControlPanel';
+export { SearchCountry } from './SearchCountry';

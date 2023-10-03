@@ -10,7 +10,7 @@ import { useActions } from 'hooks/useActions';
 function App() {
   const { theme } = useTypedSelector((store) => store.app);
   const { countries } = useTypedSelector((store) => store.countries);
-  const { getAllCountries } = useActions();
+  const { getAllCountries, renderCountries } = useActions();
 
   useEffect(() => {
     setThemeHTML(theme);
@@ -20,6 +20,7 @@ function App() {
     if (!countries.length) {
       getAllCountries();
     }
+    renderCountries();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

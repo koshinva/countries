@@ -3,7 +3,7 @@ import { useTypedSelector } from 'hooks/useTypedSelectors';
 import { Country } from '.';
 
 export const Countries = () => {
-  const { countries } = useTypedSelector((store) => store.countries);
+  const { displayedCountries: countries } = useTypedSelector((store) => store.countries);
   const [limit, setLimit] = useState<number>(12);
 
   const handleClickMore = () => {
