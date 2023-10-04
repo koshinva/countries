@@ -13,7 +13,15 @@ export const Header = () => {
             Where in the world?
           </Link>
         </h1>
-        <ToggleTheme  />
+        <div className='flex items-center gap-8'>
+          <Link
+            to="/quiz"
+            className="theme-text font-bold hover:opacity-80 transition-opacity uppercase inline-block py-2 px-6 rounded-full border border-dashed border-gray-300"
+          >
+            Quiz
+          </Link>
+          <ToggleTheme />
+        </div>
       </div>
     </header>
   );

@@ -10,3 +10,4 @@ export { BorderCountries } from './BorderCountries';
 export { FilterRegion } from './FilterRegion';
 export { ControlPanel } from './ControlPanel';
 export { SearchCountry } from './SearchCountry';
+export { Quiz } from './Quiz';
