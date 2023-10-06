@@ -1,9 +1,17 @@
 import { FC } from 'react';
 import { BiMoon, BiSun, BiSearchAlt2 } from 'react-icons/bi';
 import { HiOutlineArrowNarrowLeft } from 'react-icons/hi';
-import { FaAngleDown } from 'react-icons/fa';
+import { FaAngleDown, FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
-const Icons = { BiMoon, BiSun, BiSearchAlt2, FaAngleDown, HiOutlineArrowNarrowLeft };
+const Icons = {
+  BiMoon,
+  BiSun,
+  BiSearchAlt2,
+  FaAngleDown,
+  FaAngleLeft,
+  FaAngleRight,
+  HiOutlineArrowNarrowLeft,
+};
 
 type TypeIconName = keyof typeof Icons;
 
