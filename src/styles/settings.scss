@@ -13,3 +13,16 @@
 .bg-element-invert {
   @apply bg-elements-d dark:bg-elements-l;
 }
+
+.bg-quiz-answer {
+  @apply bg-cyan-300 dark:bg-cyan-900;
+}
+.text-quiz-answer {
+  @apply text-black dark:text-cyan-300;
+}
+.bg-quiz-answer_right {
+  @apply bg-green-600 dark:bg-green-700;
+}
+.bg-quiz-answer_error {
+  @apply bg-red-600 dark:bg-red-700;
+}

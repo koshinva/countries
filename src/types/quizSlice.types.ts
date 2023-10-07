@@ -13,6 +13,7 @@ export interface ISettingQuiz {
 }
 
 export type TQuestion = {
+  id: number;
   question: string;
   answers: string[];
   rightAnswer: string;
@@ -22,6 +23,9 @@ export interface IQuizInitialState {
   settings: ISettingQuiz;
   status: TStatus;
   questions: TQuestion[];
+  currentQuestion: TQuestion | null;
+  currentQuestionId: number;
+  countryWithErrors: string[];
 }
 
 export type TChangeSetting = 'increase' | 'decrease';

@@ -4,14 +4,17 @@ import { QuizLayout, QuizSetting } from '.';
 
 export const QuizStart = () => {
   const { settings } = useTypedSelector((store) => store.quiz);
-  const { setCountQuestion, setLevelQuiz, setTypeQuiz, changeStatusQuiz } = useActions();
+  const { countries } = useTypedSelector((store) => store.countries);
+  const { setCountQuestion, setLevelQuiz, setTypeQuiz, changeStatusQuiz, setQuestions } = useActions();
   const { type, level, countQuestion } = settings;
+
+  const handleStartGame = () => {
+    changeStatusQuiz('progress');
+    setQuestions(countries);
+  }
+
   return (
-    <QuizLayout
-      title="Game settings"
-      buttonTitle="Start Game"
-      handleButtonClick={() => changeStatusQuiz('progress')}
-    >
+    <QuizLayout title="Game settings" buttonTitle="Start Game" handleButtonClick={handleStartGame}>
       <div className="flex flex-col items-center gap-4 mb-4">
         <QuizSetting
           title="Count Questions"

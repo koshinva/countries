@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ICountryData } from 'types/countryApi.types';
 import { IQuizInitialState, TChangeSetting, TStatus } from 'types';
-import { SETTINGS_GAME, LEVEL_INDEXES, getRandomIndex, shuffleArray, getChangedIndex } from 'utils';
+import { SETTINGS_GAME, LEVEL_INDEXES, getRandomIndex, shuffleArray, getChangedIndex, generateTitleQuestion } from 'utils';
 
 const initialState: IQuizInitialState = {
   settings: {
@@ -11,6 +11,9 @@ const initialState: IQuizInitialState = {
   },
   status: 'start',
   questions: [],
+  currentQuestion: null,
+  currentQuestionId: 1,
+  countryWithErrors: [],
 };
 
 const quizSlice = createSlice({
@@ -73,18 +76,30 @@ const quizSlice = createSlice({
         }
       }
 
-      state.questions = randomIndexArray.map((i) => {
-        const question: string = countries[i[0]][type];
+      state.questions = randomIndexArray.map((i, index) => {
+        const question: string = generateTitleQuestion(countries[i[0]][type], type);
         const rightAnswer: string = countries[i[0]].country;
         const answers: string[] = shuffleArray(i).map((e) => countries[e].country);
 
-        return { question, rightAnswer, answers };
+        return { id: index + 1, question, rightAnswer, answers };
       });
+
+      state.currentQuestion = state.questions.find((q) => q.id === 1) || null;
+    },
+    updateCurrentQuestion(state) {
+      state.currentQuestionId++;
+      state.currentQuestion = state.questions.find((q) => q.id === state.currentQuestionId) || null;
     },
   },
 });
 
-export const { setQuestions, changeStatusQuiz, setCountQuestion, setLevelQuiz, setTypeQuiz } =
-  quizSlice.actions;
+export const {
+  setQuestions,
+  changeStatusQuiz,
+  setCountQuestion,
+  setLevelQuiz,
+  setTypeQuiz,
+  updateCurrentQuestion,
+} = quizSlice.actions;
 
 export default quizSlice.reducer;

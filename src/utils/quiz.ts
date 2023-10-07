@@ -1,4 +1,4 @@
-import { ISettingQuiz, TChangeSetting, TLevel } from 'types';
+import { ISettingQuiz, TChangeSetting, TLevel, TTypeGame } from 'types';
 
 export const getRandomIndex = (arrLength: number): number => {
   return Math.floor(Math.random() * arrLength);
@@ -13,11 +13,29 @@ export const shuffleArray = <T>(arr: Array<T>): T[] => {
   return result;
 };
 
-export const getChangedIndex = (index: number, lengthArr: number, typeChange: TChangeSetting): number => {
+export const getChangedIndex = (
+  index: number,
+  lengthArr: number,
+  typeChange: TChangeSetting
+): number => {
   if (index === lengthArr - 1 && typeChange === 'increase') return 0;
   if (index === 0 && typeChange === 'decrease') return lengthArr - 1;
   if (typeChange === 'decrease') return --index;
   return ++index;
+};
+
+export const generateTitleQuestion = (question: string, type: TTypeGame): string => {
+  switch (type) {
+    case 'capital':
+      return `${question} is the capital of which country?`;
+      break;
+    case 'flag':
+      return "What country's flag is in the picture";
+      break;
+    default:
+      return '';
+      break;
+  }
 };
 
 export const LEVEL_INDEXES: Record<TLevel, number[]> = {
