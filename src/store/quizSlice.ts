@@ -1,52 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ICountryData } from 'types/countryApi.types';
-
-const getRandomIndex = (arrLength: number): number => {
-  return Math.floor(Math.random() * arrLength)
-}
-
-const shuffleArray = <T>(arr: Array<T>): T[] => {
-  const result = arr;
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-}
-
-const levelIndexes: Record<TLevel, number[]> = {
-  easy: [0, 83],
-  medium: [83, 166],
-  hard: [166, 250],
-};
-
-type TLevel = 'hard' | 'medium' | 'easy';
-
-interface ISettingQuiz {
-  countQuestion: 5 | 10;
-  type: 'capital' | 'flag';
-  level: TLevel;
-}
-
-type TStatus = 'start' | 'progress' | 'finish'; 
-
-type TQuestion = {
-  question: string;
-  answers: string[];
-  rightAnswer: string;
-};
-
-interface IQuizInitialState {
-  settings: ISettingQuiz;
-  status: TStatus;
-  questions: TQuestion[];
-}
+import { IQuizInitialState, TChangeSetting, TStatus } from 'types';
+import { SETTINGS_GAME, LEVEL_INDEXES, getRandomIndex, shuffleArray, getChangedIndex } from 'utils';
 
 const initialState: IQuizInitialState = {
   settings: {
-    countQuestion: 5,
-    type: 'capital',
-    level: 'easy',
+    countQuestion: SETTINGS_GAME.countQuestion[0],
+    type: SETTINGS_GAME.type[0],
+    level: SETTINGS_GAME.level[0],
   },
   status: 'start',
   questions: [],
@@ -56,18 +17,33 @@ const quizSlice = createSlice({
   name: 'quiz',
   initialState,
   reducers: {
-    setSettings(state, { payload }: { payload: ISettingQuiz }) {
-      state.settings.countQuestion = payload.countQuestion;
-      state.settings.type = payload.type;
-      state.settings.level = payload.level;
+    setTypeQuiz(state) {
+      state.settings.type = state.settings.type === 'capital' ? 'flag' : 'capital';
     },
-    changeStatus(state, { payload }: { payload: TStatus }) {
+    setCountQuestion(state, { payload }: { payload: TChangeSetting }) {
+      const arrSettings = SETTINGS_GAME.countQuestion;
+      const newIndex = getChangedIndex(
+        arrSettings.indexOf(state.settings.countQuestion),
+        arrSettings.length,
+        payload
+      );
+      state.settings.countQuestion = arrSettings[newIndex];
+    },
+    setLevelQuiz(state, { payload }: { payload: TChangeSetting }) {
+      const arrSettings = SETTINGS_GAME.level;
+      const newIndex = getChangedIndex(
+        arrSettings.indexOf(state.settings.level),
+        arrSettings.length,
+        payload
+      );
+      state.settings.level = arrSettings[newIndex];
+    },
+    changeStatusQuiz(state, { payload }: { payload: TStatus }) {
       state.status = payload;
     },
     setQuestions(state, { payload }: { payload: ICountryData[] }) {
-
-      const [start, end] = levelIndexes[state.settings.level];
-      const {countQuestion, type} = state.settings;
+      const [start, end] = LEVEL_INDEXES[state.settings.level];
+      const { countQuestion, type } = state.settings;
 
       const countries = payload
         .slice(start, end)
@@ -86,7 +62,7 @@ const quizSlice = createSlice({
         }
         randomIndexArray.push([randomIdx]);
       }
-      
+
       for (let i = 0; i < randomIndexArray.length; i++) {
         while (randomIndexArray[i].length < 4) {
           const randomIdx = getRandomIndex(countCountries);
@@ -100,15 +76,15 @@ const quizSlice = createSlice({
       state.questions = randomIndexArray.map((i) => {
         const question: string = countries[i[0]][type];
         const rightAnswer: string = countries[i[0]].country;
-        const answers: string[] = shuffleArray(i).map(e => countries[e].country);
+        const answers: string[] = shuffleArray(i).map((e) => countries[e].country);
 
-        return {question, rightAnswer, answers};
-      })
+        return { question, rightAnswer, answers };
+      });
     },
   },
 });
 
-export const { setQuestions, setSettings, changeStatus } = quizSlice.actions;
+export const { setQuestions, changeStatusQuiz, setCountQuestion, setLevelQuiz, setTypeQuiz } =
+  quizSlice.actions;
 
 export default quizSlice.reducer;
-
