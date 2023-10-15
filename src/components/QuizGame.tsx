@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useTypedSelector } from 'hooks/useTypedSelectors';
-import { QuizLayout } from '.';
+import { QuizLayout, QuizQuestion } from '.';
 import { useActions } from 'hooks/useActions';
 
 export const QuizGame = () => {
   const [selectAnswer, setSelectAnswer] = useState<null | string>(null);
 
-  const { currentQuestion, currentQuestionId, questions, countryWithErrors } = useTypedSelector(
+  const { currentQuestion, currentQuestionId, questions, countryWithErrors, settings } = useTypedSelector(
     (store) => store.quiz
   );
   const { changeStatusQuiz, updateCurrentQuestion } = useActions();
@@ -30,6 +30,7 @@ export const QuizGame = () => {
   };
 
   const handleClickAnswer = (answer: string) => {
+    if (selectAnswer !== null) return;
     setSelectAnswer(answer);
     if (currentQuestion && answer !== currentQuestion?.rightAnswer) {
       countryWithErrors.push(currentQuestion.rightAnswer);
@@ -46,7 +47,7 @@ export const QuizGame = () => {
 
   return (
     <QuizLayout
-      title={currentQuestion?.question || ''}
+      title={<QuizQuestion typeGame={settings.type} question={currentQuestion?.question || ''} />}
       buttonTitle={checkLastQuestion() ? 'Finish Game' : 'Next Question'}
       handleButtonClick={handleButtonNext}
       buttonDisabled={selectAnswer === null}

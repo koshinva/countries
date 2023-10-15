@@ -16,3 +16,4 @@ export { QuizGame } from './QuizGame';
 export { QuizStart } from './QuizStart';
 export { QuizSetting } from './QuizSetting.tsx';
 export { QuizLayout } from './QuizLayout.tsx';
+export { QuizQuestion } from './QuizQuestion.tsx';
