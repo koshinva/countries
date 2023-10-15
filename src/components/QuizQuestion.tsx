@@ -16,7 +16,7 @@ export const QuizQuestion: FC<IProps> = ({ typeGame, question }) => {
   if (typeGame === 'flag')
     return (
       <div className="flex items-center gap-6 mb-6">
-        <img src={question} alt="country flag" className="w-28 self-start" />
+        <img src={question} alt="country flag" className="w-40 self-start" />
         <h3 className="font-semibold text-xl flex-1">What country's flag is in the picture</h3>
       </div>
     );

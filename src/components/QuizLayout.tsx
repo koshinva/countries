@@ -7,6 +7,7 @@ interface IProps {
   handleButtonClick: () => void;
   children: React.ReactNode;
   buttonDisabled?: boolean;
+  errorCount?: number | null;
 }
 
 export const QuizLayout: FC<IProps> = ({
@@ -15,6 +16,7 @@ export const QuizLayout: FC<IProps> = ({
   handleButtonClick,
   children,
   buttonDisabled = false,
+  errorCount = null,
 }) => {
   return (
     <div className="h-full grid place-content-center">
@@ -35,6 +37,12 @@ export const QuizLayout: FC<IProps> = ({
         >
           {buttonTitle}
         </button>
+
+        {errorCount !== null ? (
+          <p className="absolute bottom-4 right-2 text-red-800 dark:text-red-400 font-semibold">
+            Errors: {errorCount}
+          </p>
+        ) : null}
       </div>
     </div>
   );

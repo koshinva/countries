@@ -6,7 +6,7 @@ import { useActions } from 'hooks/useActions';
 export const QuizGame = () => {
   const [selectAnswer, setSelectAnswer] = useState<null | string>(null);
 
-  const { currentQuestion, currentQuestionId, questions, settings } = useTypedSelector(
+  const { currentQuestion, currentQuestionId, questions, settings, countryWithErrors } = useTypedSelector(
     (store) => store.quiz
   );
   const { changeStatusQuiz, updateCurrentQuestion, pushErrors } = useActions();
@@ -52,6 +52,7 @@ export const QuizGame = () => {
       buttonTitle={checkLastQuestion() ? 'Finish Game' : 'Next Question'}
       handleButtonClick={handleButtonNext}
       buttonDisabled={selectAnswer === null}
+      errorCount={countryWithErrors.length}
     >
       {!currentQuestion ? (
         'Something went wrong...'
