@@ -6,10 +6,10 @@ import { useActions } from 'hooks/useActions';
 export const QuizGame = () => {
   const [selectAnswer, setSelectAnswer] = useState<null | string>(null);
 
-  const { currentQuestion, currentQuestionId, questions, countryWithErrors, settings } = useTypedSelector(
+  const { currentQuestion, currentQuestionId, questions, settings } = useTypedSelector(
     (store) => store.quiz
   );
-  const { changeStatusQuiz, updateCurrentQuestion } = useActions();
+  const { changeStatusQuiz, updateCurrentQuestion, pushErrors } = useActions();
 
   const checkLastQuestion = () => {
     return questions.length === currentQuestionId;
@@ -32,8 +32,9 @@ export const QuizGame = () => {
   const handleClickAnswer = (answer: string) => {
     if (selectAnswer !== null) return;
     setSelectAnswer(answer);
+
     if (currentQuestion && answer !== currentQuestion?.rightAnswer) {
-      countryWithErrors.push(currentQuestion.rightAnswer);
+      pushErrors(currentQuestion.rightAnswer);
     }
   };
 

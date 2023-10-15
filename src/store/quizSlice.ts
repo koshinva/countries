@@ -90,6 +90,16 @@ const quizSlice = createSlice({
       state.currentQuestionId++;
       state.currentQuestion = state.questions.find((q) => q.id === state.currentQuestionId) || null;
     },
+    pushErrors(state, { payload }: { payload: string }) {
+      state.countryWithErrors.push(payload);
+    },
+    resetQuiz(state) {
+      state.status = 'start';
+      state.questions = [];
+      state.currentQuestion = null;
+      state.currentQuestionId = 1;
+      state.countryWithErrors = [];
+    }
   },
 });
 
@@ -100,6 +110,8 @@ export const {
   setLevelQuiz,
   setTypeQuiz,
   updateCurrentQuestion,
+  pushErrors,
+  resetQuiz,
 } = quizSlice.actions;
 
 export default quizSlice.reducer;
