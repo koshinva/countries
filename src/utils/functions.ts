@@ -10,5 +10,5 @@ export const transformNumber = (value: number): string => {
 };
 
 export const generateSlug = (nameCountry: string): string => {
-  return nameCountry.toLowerCase().split(' ').join('-');
+  return nameCountry.toLowerCase().replaceAll(/\s+/g, '-');
 };
