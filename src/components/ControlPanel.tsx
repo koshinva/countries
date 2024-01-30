@@ -1,13 +1,12 @@
-import { FilterRegion, SearchCountry } from '.';
+import { FilterRegion, SearchCountry, SortCountry } from '.';
 
 export const ControlPanel = () => {
   return (
-    <div className="">
-      <div className="container">
-        <div className="flex justify-between">
-          <SearchCountry />
-          <FilterRegion />
-        </div>
+    <div className="container">
+      <div className="flex justify-between">
+        <SearchCountry />
+        <SortCountry />
+        <FilterRegion />
       </div>
     </div>
   );
