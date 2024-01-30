@@ -1,14 +1,24 @@
 import { useState } from 'react';
 import { useTypedSelector } from 'hooks/useTypedSelectors';
 import { Country } from '.';
+import { Loader } from 'ui/Loader';
 
 export const Countries = () => {
-  const { displayedCountries: countries } = useTypedSelector((store) => store.countries);
+  const { displayedCountries: countries, isLoading } = useTypedSelector((store) => store.countries);
   const [limit, setLimit] = useState<number>(12);
 
   const handleClickMore = () => {
     setLimit((prev) => prev + 8);
   };
+
+  if (isLoading)
+    return (
+      <div className="container">
+        <div className="grid place-content-center h-screen">
+          <Loader />
+        </div>
+      </div>
+    );
 
   return (
     <div className="container">

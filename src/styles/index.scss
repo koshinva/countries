@@ -12,3 +12,45 @@
 .container {
   @apply w-[1480px] max-w-full mx-auto p-5;
 }
+
+.page {
+  --border-color-loader: '#000';
+  --border-color-loader-2: '#FF3D00';
+}
+.page.dark {
+  --border-color-loader: '#fff';
+  --border-color-loader-2: '#172554';
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px solid (--border-color-loader);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid;
+  border-color: var(--border-color-loader-2) transparent;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -20,9 +20,12 @@ function App() {
     if (!countries.length) {
       getAllCountries();
     }
-    renderCountries();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    renderCountries();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countries.length]);
 
   return (
     <>
