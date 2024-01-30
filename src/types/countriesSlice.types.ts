@@ -1,6 +1,9 @@
 import { SerializedError } from '@reduxjs/toolkit';
 import { ICountryData, Region } from '.';
 
+export type TSortBy = 'name' | 'population';
+export type TSortOrder = 'asc' | 'desc';
+
 export interface ICountriesInitialState {
   countries: ICountryData[];
   displayedCountries: ICountryData[];
@@ -8,4 +11,6 @@ export interface ICountriesInitialState {
   error: null | string | SerializedError;
   filterRegion: null | Region;
   searchQuery: string;
+  sortBy: TSortBy;
+  sortOrder: TSortOrder;
 }
