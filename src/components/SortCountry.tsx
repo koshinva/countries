@@ -32,7 +32,7 @@ export const SortCountry = () => {
   };
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center flex-wrap gap-4">
       <SortWrapper title="Sort By" open={openSortBy} setOpen={setOpenSortBy}>
         {listSortBy.map((sort, idx) => (
           <li

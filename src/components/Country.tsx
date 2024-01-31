@@ -21,7 +21,7 @@ export const Country: FC<IProps> = ({ country }) => {
         className="flex flex-col rounded-xl shadow-lg bg-element min-h-[400px] overflow-hidden hover:opacity-75 transition-opacity"
       >
 
-        <div className="h-[200px]">
+        <div className="h-auto md:h-[250px] lg:h-[200px]">
           <img
             src={country.image}
             width="100%"
@@ -32,7 +32,7 @@ export const Country: FC<IProps> = ({ country }) => {
         </div>
 
         <div className="theme-text px-4 py-6">
-          <h2 className="mb-4 text-xl font-bold">{country.name}</h2>
+          <h2 className="mb-2 sm:mb-4 text-lg sm:text-xl font-bold">{country.name}</h2>
           <div className="flex flex-col gap-2">
             {specification.map((spec) => (
               <Specification key={spec} title={spec} value={country[spec]} />

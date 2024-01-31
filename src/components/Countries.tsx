@@ -22,7 +22,7 @@ export const Countries = () => {
 
   return (
     <div className="container">
-      <ul className="grid grid-cols-4 gap-10 list-none p-0 m-0">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 list-none p-0 m-0">
         {countries.slice(0, limit).map((country) => (
           <Country key={country.name} country={country} />
         ))}

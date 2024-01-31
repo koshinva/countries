@@ -61,7 +61,7 @@ export const QuizGame = () => {
           {currentQuestion.answers.map((a) => (
             <li className="w-full" key={a}>
               <button
-                className={`bg-quiz-answer text-quiz-answer w-full p-4 text-lg font-semibold rounded-md shadow-sm hover:opacity-75 transition-opacity ${addClassesToAnswer(
+                className={`bg-quiz-answer text-quiz-answer w-full p-2 sm:p-4 text-lg font-semibold rounded-md shadow-sm hover:opacity-75 transition-opacity ${addClassesToAnswer(
                   a
                 )}`}
                 type="button"

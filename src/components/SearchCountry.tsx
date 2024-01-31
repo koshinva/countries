@@ -25,7 +25,7 @@ export const SearchCountry = () => {
 
   return (
     <form
-      className="bg-element theme-text px-6 py-2 flex items-center gap-3 shadow-md rounded-lg basis-1/3"
+      className="bg-element theme-text px-6 py-2 flex items-center gap-3 shadow-md rounded-lg basis-full lg:basis-1/3"
       onSubmit={handleSubmit}
     >
       <button className="text-xl theme-text" type="submit">

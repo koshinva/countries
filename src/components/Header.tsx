@@ -4,7 +4,7 @@ import { ToggleTheme } from 'ui';
 export const Header = () => {
   return (
     <header className="bg-element py-8 px-10">
-      <div className="flex-between-center h-full">
+      <div className="flex-between-center gap-4 flex-wrap h-full">
         <h1>
           <Link
             to="/"

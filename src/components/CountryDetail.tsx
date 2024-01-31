@@ -29,20 +29,20 @@ export const CountryDetail: FC = () => {
       <div className="container">
         <button
           type="button"
-          className="flex gap-2 items-center theme-text bg-element px-4 py-2 mb-10 rounded-lg shadow-md hover:opacity-75 transition-opacity"
+          className="flex gap-2 items-center theme-text bg-element px-4 py-2 mb-5 md:mb-10 rounded-lg shadow-md hover:opacity-75 transition-opacity"
           onClick={() => navigate(-1)}
         >
           <Icon icon="HiOutlineArrowNarrowLeft" />
           Back
         </button>
 
-        <div className="flex gap-8 items-center justify-between">
-          <div className="basis-5/12">
+        <div className="flex flex-wrap gap-8 items-center justify-between">
+          <div className="basic-full w-1/2 lg:basis-5/12">
             <img src={country.image} alt={country.name} />
           </div>
-          <div className="basis-1/2">
-            <h2 className="theme-text text-3xl font-bold mb-4">{country.name}</h2>
-            <div className="grid grid-cols-2 grid-rows-5-min-content grid-flow-col gap-x-4 gap-y-2 mb-6 theme-text">
+          <div className="basic-full lg:basis-1/2">
+            <h2 className="theme-text text-xl md:text-3xl font-bold mb-4">{country.name}</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-5-min-content grid-flow-row lg:grid-flow-col gap-x-2 md:gap-x-4 gap-y-2 mb-6 theme-text">
               {specification.map((spec) => (
                 <Specification key={spec} title={spec} value={country[spec]} />
               ))}
