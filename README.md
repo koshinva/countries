@@ -1,27 +1,38 @@
 # Countries
 
+---
+
+## Установка
+
+1. Клонировать репозиторий
+`git clone https://github.com/koshinva/countries.git`
+
+2. Установить зависимости
+`npm install`
+
+3. Запустить локально на своей машине в DEV режиме с помощью команды
+`npm run dev`
+
+4. Перейти в браузер по ссылке  `http://localhost:5173/` 
+
+## Stack
+* vite
+* typescript
+* react
+* tailwind
+* react
+* react router
+* redux toolkit
+
+## Ссылки
+
+**Демо** версия проекта доступна по **[ссылке](https://koshinva.github.io/countries/ 'https://koshinva.github.io/countries/')**
+
+📫 Задать вопрос по проекту 
+
+<a href="https://t.me/imp_0593" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/> </a>
+
 [frontend mentors link](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
 [quiz link](https://devchallenges.io/challenges/Bu3G2irnaXmfwQ8sZkw8)
 
-**BRIEF FM**
-
-Your challenge is integrating with the REST Countries API to pull country data and display it like in the designs.
-
-You can use any JavaScript framework/library on the front-end, such as React or Vue. You also have complete control over which packages you use to make HTTP requests or style your project.
-
-Your users should be able to:
-
-See all countries from the API on the homepage
-Search for a country using an input field
-Filter countries by region
-Click on a country to see more detailed information on a separate page
-Click through to the border countries on the detail page
-View the optimal layout for the interface depending on their device's screen size
-See hover and focus states for all interactive elements on the page
-Bonus: Toggle the color scheme between light and dark mode
-Download the starter code and go through the README.md file. This will provide further details about the project. The style-guide.md file is where you'll find colors, fonts, etc.
-
-Want some support on the challenge? Join our community and ask questions in the help channel.
-
-**BRIEF QUIZ**
