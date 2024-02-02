@@ -7,7 +7,7 @@ import 'styles/index.scss';
 import { store } from 'store/index.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
+  <BrowserRouter basename={import.meta.env.BASE_URL}>
     <Provider store={store}>
       <App />
     </Provider>
